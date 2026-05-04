@@ -13,6 +13,7 @@ type Project = {
   tech: string[];
   github: string;
   live: string;
+  liveLabel: string;
   image: string;
   color: string; // HSL components e.g. "180 100% 50%"
   label: string;
@@ -26,6 +27,7 @@ const projects: Project[] = [
     tech: ["TypeScript", "React", "Tailwind", "Node.js"],
     github: "https://github.com/soccerjonj/scoreboardrl",
     live: "https://scoreboardrl.vercel.app/",
+    liveLabel: "Try the app",
     image: scoreboardPreview,
     color: "180 100% 50%",
     label: "AI-Powered",
@@ -37,6 +39,7 @@ const projects: Project[] = [
     tech: ["TypeScript", "React", "Tailwind"],
     github: "https://github.com/soccerjonj/movie-night-hub",
     live: "https://movie-club-hub.lovable.app/",
+    liveLabel: "Open the club",
     image: movieClubPreview,
     color: "270 70% 65%",
     label: "Social",
@@ -48,6 +51,7 @@ const projects: Project[] = [
     tech: ["TypeScript", "React", "Next.js", "Supabase"],
     github: "https://github.com/soccerjonj/grocery-list",
     live: "https://grocery-list-drab.vercel.app/",
+    liveLabel: "See it live",
     image: groceryPreview,
     color: "145 65% 48%",
     label: "PWA",
@@ -59,6 +63,7 @@ const projects: Project[] = [
     tech: ["Python", "GIS", "JavaScript", "Shell"],
     github: "https://github.com/soccerjonj/Nashville",
     live: "https://subwaybuildermodded.com/railyard/maps/nashville",
+    liveLabel: "View the map",
     image: nashvillePreview,
     color: "38 92% 55%",
     label: "GIS / Data",
@@ -70,6 +75,7 @@ const projects: Project[] = [
     tech: ["TypeScript", "React Native", "NestJS", "Node.js"],
     github: "https://github.com/soccerjonj/7even-DemonHacks-Hackathon-",
     live: "https://devpost.com/software/7even",
+    liveLabel: "View on Devpost",
     image: sevenPreview,
     color: "340 80% 62%",
     label: "Hackathon",
@@ -248,7 +254,7 @@ const ProjectCard = ({ project, dimmed, onHover }: ProjectCardProps) => {
                   boxShadow: `0 4px 14px hsl(${project.color} / 0.35)`,
                 }}
               >
-                <ExternalLink className="w-3.5 h-3.5" /> Try it out
+                <ExternalLink className="w-3.5 h-3.5" /> {project.liveLabel}
               </a>
             )}
           </div>
@@ -549,7 +555,7 @@ const Projects = () => {
                       style={{ color: `hsl(${hoveredProject.color})` }}
                     >
                       <ExternalLink className="w-3 h-3" />
-                      Live demo
+                      {hoveredProject.liveLabel}
                     </a>
                   )}
                 </div>
