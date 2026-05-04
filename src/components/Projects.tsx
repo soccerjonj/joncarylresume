@@ -282,10 +282,31 @@ const Projects = () => {
 
   const [hoveredTitle, setHoveredTitle] = useState<string | null>(null);
   const hoveredProject = projects.find((p) => p.title === hoveredTitle) ?? null;
+  const clearTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const cancelHoverClear = () => {
+    if (clearTimerRef.current) {
+      clearTimeout(clearTimerRef.current);
+      clearTimerRef.current = null;
+    }
+  };
+
+  const scheduleHoverClear = () => {
+    cancelHoverClear();
+    clearTimerRef.current = setTimeout(() => {
+      setHoveredTitle(null);
+      isHoveringCardRef.current = false;
+    }, 150);
+  };
 
   const handleCardHover = (title: string | null) => {
-    setHoveredTitle(title);
-    isHoveringCardRef.current = title !== null;
+    if (title !== null) {
+      cancelHoverClear();
+      setHoveredTitle(title);
+      isHoveringCardRef.current = true;
+    } else {
+      scheduleHoverClear();
+    }
   };
 
   useEffect(() => {
@@ -476,7 +497,11 @@ const Projects = () => {
 
       {/* "Now previewing" info bar */}
       <div className="container max-w-5xl mx-auto px-6">
-        <div className="h-14 flex items-center justify-center">
+        <div
+          className="h-14 flex items-center justify-center"
+          onMouseEnter={cancelHoverClear}
+          onMouseLeave={scheduleHoverClear}
+        >
           <AnimatePresence mode="wait">
             {hoveredProject ? (
               <motion.div
