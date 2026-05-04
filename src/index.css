@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 28% 7%;
+    --foreground: 210 40% 96%;
+
+    --card: 222 24% 10%;
+    --card-foreground: 210 40% 96%;
+
+    --popover: 222 24% 10%;
+    --popover-foreground: 210 40% 96%;
+
+    --primary: 180 100% 50%;
+    --primary-foreground: 222 28% 7%;
+
+    --secondary: 222 20% 14%;
+    --secondary-foreground: 210 40% 80%;
+
+    --muted: 222 20% 14%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 180 100% 50%;
+    --accent-foreground: 222 28% 7%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 222 20% 16%;
+    --input: 222 20% 14%;
+    --ring: 180 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom tokens */
+    --cyan: 180 100% 50%;
+    --cyan-dim: 180 80% 35%;
+    --navy: 222 28% 7%;
+    --navy-card: 222 24% 10%;
+    --navy-border: 222 20% 16%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(222, 28%, 7%) 0%, hsl(222, 35%, 11%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222, 24%, 11%), hsl(222, 24%, 9%));
+    --gradient-accent: linear-gradient(90deg, hsl(180, 100%, 50%), hsl(200, 100%, 60%));
+
+    --shadow-glow: 0 0 20px hsl(180 100% 50% / 0.15);
+    --shadow-card: 0 4px 24px hsl(222 28% 4% / 0.6);
+    --shadow-hover: 0 8px 32px hsl(180 100% 50% / 0.12);
+
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-sans: 'Inter', sans-serif;
+
+    --sidebar-background: 222 28% 7%;
+    --sidebar-foreground: 210 40% 96%;
+    --sidebar-primary: 180 100% 50%;
+    --sidebar-primary-foreground: 222 28% 7%;
+    --sidebar-accent: 222 20% 14%;
+    --sidebar-accent-foreground: 210 40% 96%;
+    --sidebar-border: 222 20% 16%;
+    --sidebar-ring: 180 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-mono);
+  }
+
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer utilities {
+  .font-mono-display {
+    font-family: var(--font-mono);
+  }
+
+  .text-cyan {
+    color: hsl(var(--cyan));
+  }
+
+  .bg-navy-card {
+    background: var(--gradient-card);
+  }
+
+  .glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .card-hover {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: hsl(var(--cyan) / 0.4);
+  }
+
+  .gradient-text {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(hsl(var(--cyan) / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--cyan) / 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .marquee-track {
+    width: max-content;
+    animation: marquee-scroll 45s linear infinite;
+    will-change: transform;
+  }
+
+  .group\/marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      /* Move by half because the track is duplicated */
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-spin {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@layer utilities {
+  .animate-border-spin {
+    animation: border-spin 4s linear infinite;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
