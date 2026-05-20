@@ -18,7 +18,7 @@ const items = [
   },
   {
     title: "WellWatched",
-    description: "A movie and TV watchlist app — log what you've seen, rate it, and track what's next.",
+    description: "Web app that visualizes how much of the great-movie canon you've actually seen. Pull in your Letterboxd watch history and each list (IMDb 100, Letterboxd 500, and more) renders as a scratch-off grid — watched films in color, the rest greyed out. One-tap shareable images included.",
     href: "https://wellwatched.vercel.app/",
     icon: Film,
     tag: "Web App",
