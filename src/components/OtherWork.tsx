@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Globe, Map } from "lucide-react";
+import { ExternalLink, Globe, Map, Film } from "lucide-react";
 
 const items = [
   {
@@ -15,6 +15,13 @@ const items = [
     href: "https://subwaybuildermodded.com/registry/authors/soccerjonj/",
     icon: Map,
     tag: "Map Modding",
+  },
+  {
+    title: "WellWatched",
+    description: "A movie and TV watchlist app — log what you've seen, rate it, and track what's next.",
+    href: "https://wellwatched.vercel.app/",
+    icon: Film,
+    tag: "Web App",
   },
 ];
 
@@ -35,7 +42,7 @@ const OtherWork = () => {
           <p className="text-muted-foreground font-mono-display text-sm">Other side projects I'm proud of.</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 gap-3 sm:gap-5">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
           {items.map((item, i) => {
             const Icon = item.icon;
             return (
