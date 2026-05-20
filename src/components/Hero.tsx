@@ -81,7 +81,7 @@ const Hero = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold mb-4 tracking-tight leading-none"
         >
-          <span className="text-foreground">Jon </span>
+          <span className="text-foreground">Jonathan </span>
           <span className="gradient-text">Caryl</span>
         </motion.h1>
 
