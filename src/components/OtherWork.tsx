@@ -18,7 +18,7 @@ const items = [
   },
   {
     title: "WellWatched",
-    description: "Web app that pull yours Letterboxd watch history and each movie list (IMDb 100, Letterboxd 500, and more) renders as a scratch-off grid: Watched films in color, the rest greyed out. One-tap shareable images included.",
+    description: "Web app that pull yours Letterboxd watch history, presenting movie lists (IMDb 100, Letterboxd 500, and more) as scratch-off posters. One-tap shareable images included.",
     href: "https://wellwatched.vercel.app/",
     icon: Film,
     tag: "Web App",
