@@ -76,7 +76,7 @@ const Navbar = () => {
           onClick={(e) => handleNavClick(e, "#")}
           className="font-mono-display font-bold text-foreground text-sm tracking-tight hover:text-primary transition-colors"
         >
-          <span className="text-primary">~/</span>joncaryl
+          <span className="text-primary">~/</span>jonathancaryl
         </a>
 
         {/* Desktop links */}

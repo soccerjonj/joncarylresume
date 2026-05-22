@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
             <p className="font-mono-display font-bold text-lg text-foreground">
-              <span className="text-primary">~/</span>joncaryl
+              <span className="text-primary">~/</span>jonathancaryl
             </p>
             <p className="text-muted-foreground text-sm mt-1">CS Student · Available for Summer 2026 Internships</p>
           </div>
