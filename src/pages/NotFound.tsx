@@ -21,7 +21,7 @@ const NotFound = () => {
               <span className="w-3 h-3 rounded-full bg-green-500/70" />
             </div>
             <div className="flex-1 text-center text-xs font-mono-display text-muted-foreground">
-              ~/joncaryl — zsh
+              ~/jonathancaryl — zsh
             </div>
           </div>
 
