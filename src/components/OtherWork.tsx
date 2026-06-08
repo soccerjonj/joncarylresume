@@ -11,7 +11,7 @@ const items = [
   },
   {
     title: "Subway Builder — soccerjonj",
-    description: "#17 Subway Builder modder with 861 downloads across 7 published maps.",
+    description: "#18 Subway Builder modder with 1,193 downloads across 7 published maps.",
     href: "https://subwaybuildermodded.com/registry/authors/soccerjonj/",
     icon: Map,
     tag: "Map Modding",
