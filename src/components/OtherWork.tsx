@@ -11,14 +11,14 @@ const items = [
   },
   {
     title: "Subway Builder — soccerjonj",
-    description: "Top 20 Subway Builder modder with over 850 downloads across 7 published maps.",
+    description: "#17 Subway Builder modder with 861 downloads across 7 published maps.",
     href: "https://subwaybuildermodded.com/registry/authors/soccerjonj/",
     icon: Map,
     tag: "Map Modding",
   },
   {
     title: "WellWatched",
-    description: "Web app that pull yours Letterboxd watch history, presenting movie lists (IMDb 100, Letterboxd 500, and more) as scratch-off posters. One-tap shareable images included.",
+    description: "Web app that pulls your Letterboxd watch history, presenting movie lists (IMDb 100, Letterboxd 500, and more) as scratch-off posters. One-tap shareable images included.",
     href: "https://wellwatched.vercel.app/",
     icon: Film,
     tag: "Web App",

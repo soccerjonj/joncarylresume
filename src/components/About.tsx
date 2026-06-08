@@ -4,7 +4,7 @@ import { motion, useInView } from "framer-motion";
 const stats = [
   { value: 6, suffix: " yrs", label: "as an indie artist" },
   { value: 100, suffix: "M+", label: "streams scaled" },
-  { value: 5, suffix: "+", label: "shipped projects" },
+  { value: 10, suffix: "+", label: "shipped projects" },
 ];
 
 const useCounter = (target: number, inView: boolean, duration = 1400) => {

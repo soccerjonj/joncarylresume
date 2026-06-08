@@ -44,9 +44,9 @@ const Contact = () => {
     const { name, email, message } = result.data;
     const subject = encodeURIComponent(`Portfolio Contact from ${name}`);
     const body = encodeURIComponent(`From: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:jcaryl@depaul.edu?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:jonathancaryldev@gmail.com?subject=${subject}&body=${body}`;
 
-    toast({ title: "Opening your email client…", description: "If nothing happened, email me directly at jcaryl@depaul.edu" });
+    toast({ title: "Opening your email client…", description: "If nothing happened, email me directly at jonathancaryldev@gmail.com" });
     setForm({ name: "", email: "", message: "" });
     setErrors({});
   };
@@ -77,11 +77,11 @@ const Contact = () => {
               Have a question, opportunity, or just want to say hey? Drop me a message and I'll get back to you as soon as I can.
             </p>
             <a
-              href="mailto:jcaryl@depaul.edu"
+              href="mailto:jonathancaryldev@gmail.com"
               className="inline-flex items-center gap-2 text-sm font-mono-display text-primary hover:text-primary/80 transition-colors"
             >
               <Mail className="w-4 h-4" />
-              jcaryl@depaul.edu
+              jonathancaryldev@gmail.com
             </a>
           </motion.div>
 
