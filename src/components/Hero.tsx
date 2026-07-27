@@ -71,7 +71,7 @@ const Hero = () => {
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/5 text-primary text-sm font-mono-display mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          Open to internship opportunities · 2026
+          Open to internship opportunities · 2027
         </motion.div>
 
         {/* Name */}
@@ -106,7 +106,7 @@ const Hero = () => {
         >
           CS student at DePaul (AI concentration) who scaled an indie music brand to{" "}
           <span className="text-foreground font-medium">100M+ streams</span> before trading the studio for the IDE. Now
-          building full-stack products and looking for <span className="text-primary">Summer 2026 internships</span>.
+          building full-stack products and looking for <span className="text-primary">Summer 2027 internships</span>.
         </motion.p>
 
         {/* Proof bar */}
