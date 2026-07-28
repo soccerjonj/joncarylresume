@@ -18,7 +18,7 @@ const aiProjects: AIProject[] = [
     title: "Unofficial Guide",
     tag: "RAG Pipeline",
     description:
-      "A grounded Q&A system over real DePaul off-campus housing data — scraped Reddit threads, ApartmentRatings, Niche, and Apartments.com — that answers student questions about neighborhoods, roommates, fees, and commutes with cited sources. Chunks are embedded and stored in a persisted ChromaDB vector store, retrieved top-k, and passed to Groq's Llama 3.3 70B for grounded generation with source citations.",
+      "A grounded Q&A system over real DePaul off-campus housing data, scraping Reddit threads, ApartmentRatings, Niche, and Apartments.com to answer student questions about neighborhoods, roommates, fees, and commutes. Chunks are embedded into a persisted ChromaDB vector store and retrieved for grounded generation through Groq's Llama 3.3 70B, with source citations built from the retrieved chunks. Evaluated against 5 real test questions, one of which was flagged as only partially accurate rather than reported as a clean win.",
     href: "https://github.com/soccerjonj/ai201-project1-unofficial-guide-starter",
     icon: Search,
     stack: [
@@ -33,7 +33,7 @@ const aiProjects: AIProject[] = [
     title: "FitFindr",
     tag: "AI Agent",
     description:
-      "A thrift-shopping AI agent that takes a natural-language style request, searches a secondhand-listings dataset with keyword-scoring filter logic, then calls Groq to suggest an outfit and generate a shareable social-media \"fit card\" caption. Chains a search → outfit → card tool pipeline with a full agent loop and error handling.",
+      "A thrift-shopping AI agent that takes a natural-language style request, searches a secondhand-listings dataset with keyword-scoring filter logic, then calls Groq to suggest an outfit and generate a shareable social-media \"fit card\" caption. Debugging along the way included fixing a stopword-filtering bug in the search logic and swapping out a Groq model that had been decommissioned mid-project.",
     href: "https://github.com/soccerjonj/ai201-project2-fitfindr-starter",
     icon: Bot,
     stack: [
@@ -46,7 +46,7 @@ const aiProjects: AIProject[] = [
     title: "TakeMeter",
     tag: "Fine-Tuning",
     description:
-      "Classifies r/TrueFilm posts into analysis, take, or meta discourse types by fine-tuning DistilBERT on 253 hand-annotated posts, benchmarked against a Groq Llama 3.3 70B zero-shot baseline. Honestly reports that the baseline outperformed the fine-tune (78.95% vs 63.16% accuracy) — a real, explainable result given the small dataset size.",
+      "Classifies r/TrueFilm posts into analysis, take, or meta discourse types by fine-tuning DistilBERT on 253 hand-annotated posts, benchmarked against a Groq Llama 3.3 70B zero-shot baseline. The zero-shot baseline outperformed the fine-tune, 78.95% versus 63.16% accuracy, a result that's explainable given the small dataset size rather than a case of cherry-picking a win.",
     href: "https://github.com/soccerjonj/ai201_project3_takemeter",
     icon: FlaskConical,
     stack: [
@@ -61,7 +61,7 @@ const aiProjects: AIProject[] = [
     title: "Provenance Guard",
     tag: "AI Safety / Guardrails",
     description:
-      "An AI-generated-text detection and attribution system combining a statistical burstiness signal with an LLM-judge score via a calibrated weighted formula, producing thresholded confidence bands. Logs every decision to a structured JSON audit trail and includes rate limiting plus an appeal workflow for contested classifications.",
+      "Flags whether a piece of text was likely AI-generated and explains why, combining a statistical burstiness signal with an LLM-judge score from Groq. The weighting between the two signals was tuned from an initial 0.45/0.55 split to 0.30/0.70 after testing against real examples, and every classification produces a thresholded confidence band with a human appeal path for contested cases. The system has logged 13 real runs to a structured audit trail so far.",
     href: "https://github.com/soccerjonj/ai201-project4-provenance-guard",
     icon: ShieldCheck,
     stack: [
@@ -75,7 +75,7 @@ const aiProjects: AIProject[] = [
 
 const AIProjects = () => {
   useEffect(() => {
-    document.title = "AI Projects — Jonathan Caryl";
+    document.title = "AI Projects · Jonathan Caryl";
   }, []);
 
   return (
