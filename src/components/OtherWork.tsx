@@ -1,7 +1,17 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { ExternalLink, Globe, Map, Film } from "lucide-react";
+import { ExternalLink, Globe, Map, Film, Cpu } from "lucide-react";
+
+const MotionLink = motion.create(Link);
 
 const items = [
+  {
+    title: "AI Projects",
+    description: "RAG pipelines, AI agents, fine-tuning, and guardrails — coursework from CodePath's AI Engineering course (AI 201).",
+    href: "/ai-projects",
+    icon: Cpu,
+    tag: "Coursework",
+  },
   {
     title: "DePaul Club Pickleball",
     description: "Designed and built the official website for the DePaul Club Pickleball team.",
@@ -45,24 +55,17 @@ const OtherWork = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-5">
           {items.map((item, i) => {
             const Icon = item.icon;
-            return (
-              <motion.a
-                key={item.href}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ y: -4 }}
-                className="group relative flex flex-col bg-navy-card border border-border rounded-xl p-4 sm:p-6 hover:border-primary/50 transition-colors overflow-hidden h-full"
-              >
+            const isInternal = item.href.startsWith("/");
+
+            const cardContent = (
+              <>
                 <div className="flex items-center justify-between mb-3 sm:mb-4">
                   <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-md bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  {!isInternal && (
+                    <ExternalLink className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  )}
                 </div>
                 <div className="font-mono-display text-[10px] sm:text-xs text-primary mb-1.5 sm:mb-2 uppercase tracking-wider">
                   {item.tag}
@@ -71,6 +74,32 @@ const OtherWork = () => {
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              </>
+            );
+
+            const sharedMotionProps = {
+              initial: { opacity: 0, y: 20 },
+              whileInView: { opacity: 1, y: 0 },
+              viewport: { once: true },
+              transition: { duration: 0.4, delay: i * 0.1 },
+              whileHover: { y: -4 },
+              className:
+                "group relative flex flex-col bg-navy-card border border-border rounded-xl p-4 sm:p-6 hover:border-primary/50 transition-colors overflow-hidden h-full",
+            };
+
+            return isInternal ? (
+              <MotionLink key={item.href} to={item.href} {...sharedMotionProps}>
+                {cardContent}
+              </MotionLink>
+            ) : (
+              <motion.a
+                key={item.href}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                {...sharedMotionProps}
+              >
+                {cardContent}
               </motion.a>
             );
           })}
