@@ -132,31 +132,6 @@
     background-size: 40px 40px;
   }
 
-  .marquee-track {
-    width: max-content;
-    animation: marquee-scroll 45s linear infinite;
-    will-change: transform;
-  }
-
-  .group\/marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes marquee-scroll {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      /* Move by half because the track is duplicated */
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track {
-      animation: none;
-    }
-  }
 }
 
 @property --angle {
